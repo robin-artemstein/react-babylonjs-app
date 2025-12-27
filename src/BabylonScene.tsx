@@ -21,15 +21,17 @@ export default function BabylonjsScene() {
     scene.createDefaultSkybox(hdrTexture, true);
 
     // Load GLB model
-    BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/changhejeong/web-assets-hotlink/main/", "m40-sniper-rifle.glb", scene).then((result) => {
+    const modelURL = "https://raw.githubusercontent.com/changhejeong/web-assets-hotlink/main/";
+    const modelName = "bullet-for-assult-2025-11-7-1.glb";
+    BABYLON.SceneLoader.ImportMeshAsync("", modelURL, modelName, scene).then((result) => {
              // Retrieve the loaded model (assuming the model is the first root node)
-            const model = result.meshes[0];
+            const model: any = result.meshes[0];
 
             // Setting coordinate position for loaded model, for instance, move it to (x: -0.25, y: -01, z: 0)
-            model.position = new BABYLON.Vector3(-0.25, -0.1, 0);
+            model.position = new BABYLON.Vector3(-0.25, 0.1, 0);
 
             // Optional: Setting scaling ratio for the loaded model (if the model is too small or too large)
-            model.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1); // Setting the scaling ratio
+            model.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25); // Setting the scaling ratio
 
             // Optional: Setting rotation for the loaded model (in radians)
             model.rotation = new BABYLON.Vector3(0, Math.PI / 1, 0); // Rotate 90 degrees along the Y-axis.

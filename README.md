@@ -42,8 +42,7 @@ git commit -m "Commit on date."
 git remote rm origin
 git branch -M main
 git remote add origin git@github.com:robin-artemstein/react-babylonjs-app.git
-git push -u origin main
-git push --force origin main
+git push -u -f origin main
 ```
 
 ## React Compiler

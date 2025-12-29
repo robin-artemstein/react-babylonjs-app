@@ -73,11 +73,11 @@ export default function BabylonjsScene() {
     // Create the text block (displaying the number)
     const textBlockSlider = new GUI.TextBlock();
     textBlockSlider.textHorizontalAlignment = GUI.TextBlock.HORIZONTAL_ALIGNMENT_LEFT;
-    textBlockSlider.paddingLeft = "200px";
+    textBlockSlider.paddingLeft = "130px";
     textBlockSlider.paddingBottom = "1px";
-    textBlockSlider.text = "Unsheathe / Sheathe";
+    textBlockSlider.text = "Draw / Sheathe";
     textBlockSlider.color = "white";
-    textBlockSlider.fontSize = 22;
+    textBlockSlider.fontSize = 20;
     textBlockSlider.height = "50px";
     stackPanelSlider.addControl(textBlockSlider);
 

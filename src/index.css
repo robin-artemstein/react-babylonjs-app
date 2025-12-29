@@ -1,7 +1,6 @@
 @import "tailwindcss";
 :root {
-  display: flex;
-  justify-content: center;
+  margin: 0.5% 2.5%;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: #242424;
 }

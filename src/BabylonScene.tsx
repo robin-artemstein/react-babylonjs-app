@@ -64,7 +64,7 @@ export default function BabylonjsScene() {
     // Create a stack panel for slider GUI
     const stackPanelSlider = new GUI.StackPanel();
     stackPanelSlider.isVisible = true;
-    stackPanelSlider.width = "70%";
+    stackPanelSlider.width = "77%";
     stackPanelSlider.left = "-7%"
     stackPanelSlider.top = "40%";
     stackPanelSlider.horizontalAlignment = GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -72,12 +72,11 @@ export default function BabylonjsScene() {
 
     // Create the text block (displaying the number)
     const textBlockSlider = new GUI.TextBlock();
-    textBlockSlider.textHorizontalAlignment = GUI.TextBlock.HORIZONTAL_ALIGNMENT_LEFT;
-    textBlockSlider.paddingLeft = "130px";
+    textBlockSlider.textHorizontalAlignment = GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
     textBlockSlider.paddingBottom = "1px";
     textBlockSlider.text = "Draw / Sheathe";
     textBlockSlider.color = "white";
-    textBlockSlider.fontSize = 20;
+    textBlockSlider.fontSize = 25;
     textBlockSlider.height = "50px";
     stackPanelSlider.addControl(textBlockSlider);
 
@@ -88,7 +87,7 @@ export default function BabylonjsScene() {
     slider.maximum = 230;
     slider.value = 0;
     slider.height = "20px";
-    slider.width = "70%";
+    slider.width = "77%";
     slider.isVertical = false; // Ensure horizontal
     slider.isPointerBlocker = true; // Ensure the slider captures pointer (mouse/touch) events
     stackPanelSlider.addControl(slider);

@@ -34,7 +34,7 @@ export default function BabylonjsScene() {
         meshes[0].position = new BABYLON.Vector3(-0.2, 0.0005, 0);
 
         // Setting scaling ratio for the loaded model
-        meshes[0].scaling = new BABYLON.Vector3(1, 1, 1);
+        meshes[0].scaling = new BABYLON.Vector3(1.5, 1.5, 1.5);
 
         //Optional: Setting rotation for the loaded model
         meshes[0].rotation = new BABYLON.Vector3(0, Math.PI / 1, 0);
@@ -256,7 +256,6 @@ export default function BabylonjsScene() {
     // Event: When "Need help?" is clicked, show the modal.
     helpButton.onPointerUpObservable.add(function() {
         modalRect.isVisible = true; // Make modal visible.
-        stackPanelSlider.isVertical = false; //Make slider stack panel invisible.
     });
 
     // Event: When Rotate button is clicked, show rotation text, hide others.

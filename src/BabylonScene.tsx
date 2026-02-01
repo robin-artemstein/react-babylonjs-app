@@ -17,15 +17,14 @@ export default function BabylonjsScene() {
     scene.createDefaultCameraOrLight(true, true, true)
 
     // Environment (ground + skybox)
-    const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("https://playground.babylonjs.com/textures/environment.dds", scene);
-    scene.createDefaultSkybox(hdrTexture, true);
-
+    const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("https://playground.babylonjs.com/textures/environment.env", scene);
+    scene.environmentTexture = hdrTexture;
     // Store a reference to the loaded model animation group; it will be used later.
     let katanaAnimationGroup:any = null;
 
     // Load the GLB model from the specified URL
-    const modelURL = "https://raw.githubusercontent.com/robin-artemstein/testing-static-pages/main/";
-    const modelName = "Katana3.glb";
+    const modelURL = "https://raw.githubusercontent.com/robin-artemstein/babylonjs-test/main/";
+    const modelName = "katana-5-v1.glb";
 
     BABYLON.SceneLoader.ImportMesh("", modelURL, modelName, scene, function(meshes, particleSystems, skeletons, animationGroups) {
         // Callback function after loading completes

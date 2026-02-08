@@ -3,7 +3,12 @@ import * as BABYLON from "@babylonjs/core"
 import '@babylonjs/loaders';
 import * as GUI from "@babylonjs/gui"
 
-export default function BabylonjsScene() {
+interface modelSourceProps {
+    modelSourceLink: string,
+    modelSourceName: string;
+}
+
+export default function BabylonjsScene({modelSourceLink, modelSourceName}: modelSourceProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
@@ -23,8 +28,8 @@ export default function BabylonjsScene() {
     let katanaAnimationGroup:any = null;
 
     // Load the GLB model from the specified URL
-    const modelURL = "https://raw.githubusercontent.com/robin-artemstein/babylonjs-test/main/";
-    const modelName = "katana-5-v1.glb";
+    const modelURL = modelSourceLink;
+    const modelName = modelSourceName;
 
     BABYLON.SceneLoader.ImportMesh("", modelURL, modelName, scene, function(meshes, particleSystems, skeletons, animationGroups) {
         // Callback function after loading completes

@@ -6,9 +6,10 @@ import * as GUI from "@babylonjs/gui"
 interface modelSourceProps {
     modelSourceLink: string,
     modelSourceName: string;
+    modelRotationAngle: number;
 }
 
-export default function BabylonjsScene({modelSourceLink, modelSourceName}: modelSourceProps) {
+export default function BabylonjsScene({modelSourceLink, modelSourceName, modelRotationAngle}: modelSourceProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
@@ -28,20 +29,22 @@ export default function BabylonjsScene({modelSourceLink, modelSourceName}: model
     let katanaAnimationGroup:any = null;
 
     // Load the GLB model from the specified URL
-    const modelURL = modelSourceLink;
-    const modelName = modelSourceName;
+    const [modelURL, modelName]:[string, string] = [modelSourceLink, modelSourceName];
+    const [modelPositionX, modelPositionY, modelPositionZ]:[number, number, number] = [-0.6, -0.0005, 0];
+    const [modelScalingX, modelScalingY, modelScalingZ]:[number, number, number] = [1.5, 1.5, 1.5];
+    const [modelRotationX, modelRotationY, modelRotationZ]:[number, number, number] = [0, Math.PI / 1, modelRotationAngle];
 
     BABYLON.SceneLoader.ImportMesh("", modelURL, modelName, scene, function(meshes, particleSystems, skeletons, animationGroups) {
         // Callback function after loading completes
 
         ////Setting coordinate position for loaded model
-        meshes[0].position = new BABYLON.Vector3(-0.2, 0.0005, 0);
+        meshes[0].position = new BABYLON.Vector3(modelPositionX, modelPositionY, modelPositionZ);
 
         // Setting scaling ratio for the loaded model
-        meshes[0].scaling = new BABYLON.Vector3(1.5, 1.5, 1.5);
+        meshes[0].scaling = new BABYLON.Vector3(modelScalingX, modelScalingY, modelScalingZ);
 
         //Optional: Setting rotation for the loaded model
-        meshes[0].rotation = new BABYLON.Vector3(0, Math.PI / 1, 0);
+        meshes[0].rotation = new BABYLON.Vector3(modelRotationX, modelRotationY, modelRotationZ);
 
         // Save the reference of the animation group
         katanaAnimationGroup = animationGroups[0];
@@ -99,10 +102,7 @@ export default function BabylonjsScene({modelSourceLink, modelSourceName}: model
     // Update the text block number and make the animation pause at specific frame when slider value changes
     slider.onValueChangedObservable.add(function(value) {
         const textNumber: number = Math.round(value)
-        console.log(textNumber + " is " + typeof textNumber);
         if (katanaAnimationGroup) {
-            console.log("When the button is clicked, the animation moves to frame 55.");
-
             // Go to and pause at the specific frame.
             katanaAnimationGroup.goToFrame(textNumber);
             katanaAnimationGroup.pause();
